@@ -1,0 +1,1 @@
+python中没有stack, 直接使用List即可
