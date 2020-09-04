@@ -15,7 +15,7 @@ class Solution:
 
         def dfs(i, j, char_idx):
             if 0 <= i < num_row and 0 <= j < num_col and board[i][j] == word[
-                    char_idx] and (not vis[i][j]):
+                    char_idx] and (not vis[i][j]):  # 合法性判断
                 if char_idx == len(word) - 1:
                     return True
                 else:
