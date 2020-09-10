@@ -34,3 +34,8 @@ n*m 的矩阵 M
 
 `DP[i][j]` 表示从[i][j]开始的最长路径
 
+或者结合拓扑排序[leetcode39](https://leetcode-cn.com/problems/longest-increasing-path-in-a-matrix/)
+
+## n*n矩阵本质是一个图
+
+
