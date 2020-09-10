@@ -26,22 +26,28 @@ def solve(n, x, y) -> int:
     # 找n*n的走法
     def dfs(i, j, res):
         if 0 <= i < n and 0 <= j < n and (not vis[i][j]):
+            res.append((i, j))
+            if len(res) == n * n:
+                return
 
             vis[i][j] = True
-            for c in coors:
-                res_cp = res.copy()
-                res_cp.append((i, j))
-                tmp_res = dfs(x + c[0], y + c[1], res_cp)
-                if len(tmp_res) == n * n:
-                    return tmp_res
+            for a, b in coors:
+                dfs(i + a, j + b, res)
+                if len(res) == n * n:
+                    return
             vis[i][j] = False
-            return res
+            res.pop()
+            return
         else:
-            return res
+            return
 
-    res = dfs(x, y, [])
-    if len(res) == n * n:
+    a_path = []
+    dfs(x, y, a_path)
+    if len(a_path) == n * n:
         print(True)
-        # 打印res
+        print(a_path)
     else:
         print(False)
+
+
+solve(5, 2, 2)
