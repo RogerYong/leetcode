@@ -21,58 +21,54 @@ struct edge
 };
 typedef pair<int, int> P; //first是最短距离，second是顶点的编号
 int V;                    //顶点个数
-vector<edge> G[MAXV]; // 邻接表
-int d[MAXV]; // 距离
+vector<edge> G[MAXV];     // 邻接表
+int d[MAXV];              // 距离
 int path[MAXV];
 bool vis[MAXV];
+int cnt[MAXV]; // 用于统计每个点进入队列的次数 > n 表示有负环
 
-
-
-// 参考https://blog.csdn.net/qq_38649940/article/details/108391045
-void dijkstra(int s)
+bool spfa_loop(int s)
 {
-    // 初始化路径
-    for (int i = 0; i < MAXV; i++)
-    {
-        path[i] = -1;
-    }
-
-    priority_queue<P, vector<P>, greater<P>> que;
+    // 点id从0开始
+    queue<int> q;
     for (int i = 0; i < MAXV; i++)
     {
         d[i] = INF;
+        vis[i] = false;
+        path[i] = -1;
+        cnt[i] = 0;
     }
 
     d[s] = 0;
-    que.push(P(0, s)); //把起点推入队列
-
-    while (!que.empty())
+    q.push(s);
+    vis[s] = true; // 用vis表示在queue中
+    cnt[s]++;
+    while (!q.empty())
     {
-        P p = que.top();
-        que.pop();
-        int v = p.second; //顶点的编号
-
-        if (vis[v])
-        {
-            continue;
-        }
-        vis[v] = true;
-        // if (d[v] < p.first) // 已经访问过
-        //     continue;
+        int v = q.front();
+        q.pop();
+        vis[v] = false;
         for (int i = 0; i < G[v].size(); i++)
         {
             edge e = G[v][i];
-            if (vis[e.to])
-            {
-                continue;
-            }
-            if (d[e.to] > d[v] + e.cost)
+            if (d[v] + e.cost < d[e.to])
             {
                 d[e.to] = d[v] + e.cost;
-                que.push(P(d[e.to], e.to));
+                path[e.to] = v;
 
-                path[e.to] = v; // 更新路径
+                cnt[e.to]++;
+                if (cnt[e.to] >= V)
+                {
+                    return true; // 存在负环
+                }
+
+                if (!vis[e.to])
+                {
+                    q.push(e.to);
+                    vis[e.to] = true;
+                }
             }
         }
     }
+    return false; // 没有负环
 }
