@@ -36,7 +36,7 @@ class Trie:
         Returns if there is any word in the trie that starts with the given prefix.
         """
         tree = self.lookup
-        for char in word:
+        for char in prefix:
             if char not in tree:
                 return False
             tree = tree[char]
