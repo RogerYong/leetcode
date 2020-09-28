@@ -9,7 +9,7 @@ from typing import List
 
 def merge_sort_for_reverse_pair(nums, left, right):
     if not nums or left >= right:
-        return 0
+        return []  # 如果说要打印, 那就用一个list保存即可
     mid = (left + right) // 2
     left_reverse_pair = merge_sort_for_reverse_pair(nums, left,
                                                     mid)  # nums[left:mid]
@@ -36,7 +36,8 @@ def merge_and_cnt(nums, left, mid, right):
 
     i = left
     j = mid + 1
-    cnt = 0  # 逆序数对计算
+    # cnt = 0  # 逆序数对计算
+    rev_pair = []
 
     while i <= mid and j <= right:
         if nums[i] <= nums[j]:  # 从小到大排序
@@ -44,9 +45,13 @@ def merge_and_cnt(nums, left, mid, right):
             i += 1
         else:
             tmp.append(nums[j])
-            j += 1
 
-            cnt += mid - i + 1  # 逆序数对计算
+            # cnt += mid - i + 1  # 逆序数对计算
+
+            tmp_pairs = [(larger_num, nums[j])
+                         for larger_num in nums[i:mid + 1]]
+            rev_pair.extend(tmp_pairs)
+            j += 1
 
     while i <= mid:
         tmp.append(nums[i])
@@ -58,14 +63,17 @@ def merge_and_cnt(nums, left, mid, right):
 
     nums[left:right + 1] = tmp
 
-    return cnt  # 逆序数对计算
+    # return cnt  # 逆序数对计算
+    return rev_pair
 
 
 class Solution:
     def reversePairs(self, nums: List[int]) -> int:
         if not nums:
-            return 0
-        return merge_sort_for_reverse_pair(nums, 0, len(nums) - 1)
+            return []
+        res = merge_sort_for_reverse_pair(nums, 0, len(nums) - 1)
+        res.sort()
+        return res
 
 
 if __name__ == "__main__":
