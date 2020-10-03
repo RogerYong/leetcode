@@ -5,7 +5,7 @@ import math
 
 def complete_backpack_full(n, capacity, costs):
     '''
-    完全背包, 能否装满背包
+    完全背包+能否装满背包
 
     n: 物品数
     capacity: 背包总容量
@@ -16,7 +16,7 @@ def complete_backpack_full(n, capacity, costs):
     dp[0] = 0  # 容量0
 
     for i in range(n):  # 0到n-1
-        for j in range(costs[i], capacity+1):  # 完全背包从小到大
+        for j in range(costs[i], capacity + 1):  # 完全背包从小到大
             dp[j] = min(dp[j], dp[j - costs[i]] + 1)
 
     return dp[capacity]
