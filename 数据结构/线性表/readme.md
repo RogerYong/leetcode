@@ -13,3 +13,6 @@
 # 栈
 python中的栈queue.LifoQueue
 
+# 单调栈
+
+解决Next Greater Number一类问题
