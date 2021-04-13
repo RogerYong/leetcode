@@ -68,7 +68,7 @@ def reverse_k(linked_list, k):
     '''
     递归实现链表反转
     时间O(n)
-    空间O(n)
+    空间O(1)
     '''
     if not linked_list:
         return
