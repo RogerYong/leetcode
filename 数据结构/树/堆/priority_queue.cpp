@@ -8,7 +8,6 @@ int main()
 {
     priority_queue<int, vector<int>, greater<int>> q1; // 小顶堆
     priority_queue<int, vector<int>, less<int>> q2;    // 大顶堆
-
     for (int i = 0; i < 5; ++i)
     {
         q1.push(i);
