@@ -12,9 +12,9 @@ void get_next(const string &pat, vector<int> &next)
 
     next.assign(len_pat + 1, 0); // 默认都转移到0
 
-    next[0] = -1;
-    int k = -1;
-    int j = 0;
+    next[0] = -1; // 0转移到-1, 表示 i++, j++
+    int k = -1;   // 前缀指针
+    int j = 0;    // 后缀指针
 
     while (j < len_pat - 1)
     {
@@ -28,7 +28,7 @@ void get_next(const string &pat, vector<int> &next)
             }
             else
             {
-                next[j] = next[k];
+                next[j] = next[k]; // 前缀与后缀的公共子序列
             }
         }
         else
