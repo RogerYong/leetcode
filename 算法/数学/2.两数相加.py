@@ -29,13 +29,10 @@
 # from typing import List
 
 
-from typing import List
-
-
-class ListNode:
-    def __init__(self, x):
-        self.val = x
-        self.next = None
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
 
 #     @staticmethod
 #     def makeLinkedList(l: List[int]):
