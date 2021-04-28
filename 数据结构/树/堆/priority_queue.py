@@ -28,7 +28,7 @@ def test_heapq():
     print(heapq.nsmallest(3, data))
 
     # 在list上做堆的操作
-    heapq.heapify(data)  # 小顶堆
+    heapq.heapify(data)  # 小顶堆, 使用push/pop之前, 需要heapify
     print(data)
 
     # 向堆中插入数据, 并维护数据
