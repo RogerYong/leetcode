@@ -1,9 +1,9 @@
 
 无权最短路: BFS, 复杂度O(|V| +|E|)
 
-正权最短路: Dijkstra算法
+正权最短路: Dijkstra算法 O(|E|)
 
-负权最短路: SPFA算法
+负权最短路: SPFA算法 O(|V|*|E|)
 
 多源(可负权)最短路: Floyd
 
