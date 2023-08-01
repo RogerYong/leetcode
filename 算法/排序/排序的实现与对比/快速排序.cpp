@@ -27,6 +27,7 @@ const Comparable &median3(vector<Comparable> &a, int left, int right)
 
     // a[center]是pivot
     swap(a[center], a[right - 1]); // 把pivot放在a[right-1]
+    // 保证了a[right] > a[right-1], 也就是a[right]>privot, a[right]已经在privot的右边了
     return a[right - 1];
 }
 
