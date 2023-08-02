@@ -11,7 +11,7 @@ void insertionSort(vector<Comparable> &a)
     for (int p = 1; p < a.size(); p++) // N-1趟排序
     {
 
-        // 对于第p趟排序的结果, 保证[0,p]是有序的
+        // 对于第p趟排序的结果, 保证[0,p)是有序的
 
         // 因此, 第p趟排序, 选择下标为p的数,在前面[0,p-1]插入
 
