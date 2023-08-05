@@ -14,7 +14,7 @@ ForwardIterator lower_bound (ForwardIterator first, ForwardIterator last,const T
 ForwardIterator lower_bound (ForwardIterator first, ForwardIterator last, const T& val, Compare comp);
 
 C++ upper_bound()函数
-       lower_bound()函数 用于在指定范围内查找大于目标值的第一个元素。
+       lower_bound()函数 用于在指定范围内查找**大于**目标值的第一个元素。
        以下为其常用的两种用法（与lower_bound类似）：
        //查找[first, last)区域中第一个大于 val 的元素。
 ForwardIterator upper_bound (ForwardIterator first, ForwardIterator last,const T& val);
