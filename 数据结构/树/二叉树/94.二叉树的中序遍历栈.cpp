@@ -10,6 +10,8 @@ struct TreeNode
     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
 };
 
+// 时间复杂度O(1)
+// 空间复杂度O(N): 取决于栈深度, 二叉树为一条链的情况下会达到 O(n) 的级别。
 vector<int> inorderTraversal(TreeNode *root)
 {
     stack<TreeNode *> S;

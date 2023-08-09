@@ -30,7 +30,8 @@
 # Definition for a binary tree node.
 from typing import List
 
-
+# 时间复杂度O(1)
+# 空间复杂度O(N): 取决于栈深度, 二叉树为一条链的情况下会达到 O(n) 的级别。
 class TreeNode:
     def __init__(self, x):
         self.val = x
