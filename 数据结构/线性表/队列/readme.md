@@ -6,13 +6,23 @@
 std::deque<T>
 std::queue<T>
 
+## c++优先队列
+```
+priority_queue<int, vector<int>, greater<int>> q1; // 小顶堆
+priority_queue<int, vector<int>, less<int>> q2;    // 大顶堆
+```
+
 
 # python 队列
 ```
 from queue import Queue
 from collections import deque
 ```
-
+## python的优先队列有两种实现: 
+```
+import heapq
+from queue import PriorityQueue
+```
 
 # java队列/双端队列
 
@@ -55,5 +65,6 @@ ArrayDeque
 ConcurrentLinkedDeque 
 LinkedBlockingDeque
 
+# 双端队列与单调队列
 
 
